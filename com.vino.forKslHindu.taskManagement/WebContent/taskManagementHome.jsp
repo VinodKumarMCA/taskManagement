@@ -32,7 +32,7 @@
 <h3>Task Management</h3>
 </head>
 <body>
-  <form enctype="application/x-www-form-urlencoded" action="./rest/task" method="POST"  id="taskManagementform">
+  <form enctype="application/x-www-form-urlencoded" action="./rest/task" method="POST" onsubmit="return validateForm()"  id="taskManagementform">
  <fieldset>
   
   <label>Task: </label> 
@@ -49,7 +49,9 @@ Random randomValue=new Random();
 %>
  <input  type="hidden" name="id"  value="<%=Math.abs(randomValue.nextInt()) %>">
   <input type="hidden" name="status"  value="new">
-&#160;&#160; <button id="submitForm" type="submit"  class="submitForm">Add Task</button>
+&#160;&#160; 
+ <button type="submit" id="submitForm" name="submit" >Add Task</button>
+
   
  </fieldset>
  </form>
@@ -102,7 +104,8 @@ Random randomValue=new Random();
 				 
 				</select></td>
 			
-			<td><button value="">Delete</button></td>
+			<td><button value="">Update</button>&#160;<button value="">Delete</button></td>
+			
 		</tr><!-- Table Row -->
        
        
