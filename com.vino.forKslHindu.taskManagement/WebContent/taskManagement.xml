@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<taskManagementModels>
+<taskManagementModel>
+<id>1</id>
+<priority>medium</priority>
+<status>new</status>
+<task>Vino Creating RESTful</task>
+</taskManagementModel>
+<taskManagementModel>
+<id>2</id>
+<priority>medium</priority>
+<status>new</status>
+<task>Vino Creating RESTful</task>
+</taskManagementModel>
+</taskManagementModels>

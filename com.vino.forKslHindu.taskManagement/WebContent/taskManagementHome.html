@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Task Management</title>
+<link rel="stylesheet" type="text/css" href="theme/css/taskManagement.css">
+
+<h3>Task Management</h3>
+</head>
+<body>
+  <form enctype="application/x-www-form-urlencoded" action="./rest/task" method="POST"  id="taskManagementform">
+ <fieldset>
+  <legend>New Task:</legend>
+  <label>Task: </label> 
+   <input class="taskName" name="task"  type="text">&#160;
+   <label>Priorty: </label>
+   <select class="taskPriority" name="priority">
+  <option value="medium">Medium</option>
+  <option value="low">Low</option>
+  <option value="high">High</option>
+ 
+</select>
+ <input  type="hidden" name="id"  value="1">
+  <input type="hidden" name="status"  value="new">
+&#160;&#160; <button id="submitForm" type="submit"  class="submitForm">Add Task</button>
+  
+ </fieldset>
+ </form>
+ <br/>
+<table cellspacing='0'> <!-- cellspacing='0' is important, must stay -->
+   
+	<!-- Table Header -->
+	<thead>
+		<tr>
+			<th>ID</th>
+			<th>Task</th>
+			<th>Priority</th>
+			<th>Status</th>
+			<th>Action</th>
+		</tr>
+	</thead>
+	<!-- Table Header -->
+
+	<!-- Table Body -->
+	<tbody>
+
+		<tr>
+			<td>1</td>
+			<td>Create App</td>
+			<td>Medium</td>
+			<td>Complete</td>
+			<td><button value="">Delete</button></td>
+		</tr><!-- Table Row -->
+
+
+	</tbody>
+	<!-- Table Body -->
+
+</table>
+
+</body>
+</html>
