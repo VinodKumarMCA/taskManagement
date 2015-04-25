@@ -1,5 +1,5 @@
 <%@ page import="javax.xml.parsers.*,org.w3c.dom.*" %>
-	
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 	
 <%@page import="java.util.*" %>
  <%
  try{
@@ -7,7 +7,7 @@
  String idElement = "id";
  String taskElement = "task";
  String priorityElement = "priority";
- String statusValue = "status";
+ String statusElement = "status";
  %>
  <%!
  Document doc;
@@ -74,8 +74,7 @@ Random randomValue=new Random();
    </div>          
  <br/>
  <table cellspacing='0'> <!-- cellspacing='0' is important, must stay -->
-   
-	<!-- Table Header -->
+   	<!-- Table Header -->
 	<thead>
 		<tr>
 			<th>ID</th>
@@ -94,17 +93,114 @@ Random randomValue=new Random();
        
        <tr>
 			<td><%=getXMLValue(idElement, i)%></td>
-			<td><%=getXMLValue(taskElement, i)%></td>
-			<td><%=getXMLValue(priorityElement, i)%></td>
-			<td><select  name="status">
-			     <option value="new">New</option>
-				  <option value="pending">Pending</option>
-				  	  
-				  <option value="complete">Complete</option>
-				 
-				</select></td>
 			
-			<td><button value="">Update</button>&#160;<button value="">Delete</button></td>
+			
+			<td> <input type="text" value="<%=getXMLValue(taskElement, i)%>"/></td>
+			
+			 <c:choose>
+       <c:when test="<%=getXMLValue(priorityElement, i) %> == 'medum'}">
+       <td>
+         <select  name="priority">
+			    
+			   
+			     <option value="medium">Medium</option>
+				 <option value="low">Low</option>
+				 <option value="high">High</option>
+				
+				 
+				
+				</select>
+				</td>
+      </c:when>
+     <c:when test="<%=getXMLValue(priorityElement, i) %> == 'low'}">
+     <td>
+      <select  name="priority">
+			    
+			   
+			   
+				
+				  <option value="low">Low</option>
+				   <option value="medium">Medium</option>
+				   <option value="high">High</option>
+			
+				
+				</select>
+			</td>	
+    </c:when>
+  
+  <c:otherwise> 
+  <td>
+   <select  name="priority">
+			    
+			   
+				
+			
+				     <option value="high">High</option>
+				     <option value="low">Low</option>
+				    <option value="medium">Medium</option>
+				
+				</select>
+			</td>	
+  </c:otherwise>
+	</c:choose>
+		
+		
+			
+				<td>
+			 <c:choose>
+       <c:when test="<%=getXMLValue(statusElement, i) %> == 'new'}">
+        <td>
+   <select  name="status">
+			    
+			   
+				
+			
+				     
+				     <option value="new">New</option>
+				     
+				    <option value="pending">Pending</option>
+				    <option value="complete">Complete</option>
+				
+				</select>
+			</td>	
+      </c:when>
+     <c:when test="<%=getXMLValue(statusElement, i) %> == 'pending'}">
+    <td>
+   <select  name="status">
+			    
+			   
+				
+			
+				     
+				    <option value="pending">Pending</option>
+				     <option value="new">New</option>
+				    <option value="complete">Complete</option>
+				    
+				
+				</select>
+			</td>	
+    </c:when>
+  
+  <c:otherwise> 
+  <td>
+   <select  name="status">
+			    
+			   
+				
+			
+				     <option value="complete">Complete</option>
+				     <option value="new">New</option>
+				    <option value="pending">Pending</option>
+				
+				</select>
+			</td>	
+  </c:otherwise>
+	</c:choose>
+		
+		</td>	
+			
+			
+			<td><button value="">Update</button>&#160;<a href="http://localhost:8080/com.vino.forKslHindu.taskManagement/rest/task/<%=getXMLValue(idElement, i)%>">Delete</a></td>
 			
 		</tr><!-- Table Row -->
        
