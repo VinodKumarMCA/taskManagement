@@ -5,7 +5,7 @@ function taskViewOptionChange()
 function validateForm() {
     var x = document.forms["taskManagementform"]["task"].value;
     if (x == null || x == "") {
-        alert("Task Name must be filled out");
+        alert("Please enter task.");
         return false;
     }
 }
